@@ -46,6 +46,7 @@ class CourseRepositoryImpl(CourseRepository):
             _course = self.session.query(CourseDTO).filter_by(id=course_dto.id).one()
             _course.name = course_dto.name
             _course.categories = course_dto.categories
+            _course.price = course_dto.price
         except:
             raise
 

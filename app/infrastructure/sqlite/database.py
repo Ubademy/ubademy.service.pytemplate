@@ -6,6 +6,9 @@ from sqlalchemy.orm import sessionmaker
 
 try:
     DATABASE_URL = os.environ['DATABASE_URL']
+    if DATABASE_URL.startswith("postgress://"):
+        DATABASE_URL.replace("postgress://","postgressql://",1)
+
     engine = create_engine(
         DATABASE_URL,
     )

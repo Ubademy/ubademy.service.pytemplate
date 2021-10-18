@@ -37,7 +37,9 @@ from app.usecase.course import (
 config.fileConfig("logging.conf", disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
 
-app = FastAPI()
+app = FastAPI(
+    title="courses"
+)
 
 create_tables()
 
@@ -74,6 +76,7 @@ def course_command_usecase(
             "model": ErrorMessageCourseNameAlreadyExists,
         },
     },
+    tags=["courses"],
 )
 async def create_course(
     data: CourseCreateModel,
@@ -104,6 +107,7 @@ async def create_course(
             "model": ErrorMessageCoursesNotFound,
         },
     },
+    tags=["courses"],
 )
 async def get_courses(
     course_query_usecase: CourseQueryUseCase = Depends(course_query_usecase),
@@ -135,6 +139,7 @@ async def get_courses(
             "model": ErrorMessageCourseNotFound,
         },
     },
+    tags=["courses"],
 )
 async def get_course(
     course_id: str,
@@ -165,6 +170,7 @@ async def get_course(
             "model": ErrorMessageCourseNotFound,
         },
     },
+    tags=["courses"],
 )
 async def update_course(
     course_id: str,
@@ -195,6 +201,7 @@ async def update_course(
             "model": ErrorMessageCourseNotFound,
         },
     },
+    tags=["courses"],
 )
 async def delete_course(
     course_id: str,

@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Union
 
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, BigInteger
 
 from app.domain.course import Course
 from app.infrastructure.sqlite.database import Base
@@ -19,8 +19,8 @@ class CourseDTO(Base):
     name: Union[str, Column] = Column(String, nullable=False, autoincrement=False)
     categories: Union[str, Column] = Column(String, nullable=False, autoincrement=False)
     price: Union[int, Column] = Column(Integer, nullable=False)
-    created_at: Union[int, Column] = Column(Integer, index=True, nullable=False)
-    updated_at: Union[int, Column] = Column(Integer, index=True, nullable=False)
+    created_at: Union[int, Column] = Column(BigInteger, index=True, nullable=False)
+    updated_at: Union[int, Column] = Column(BigInteger, index=True, nullable=False)
 
     def to_entity(self) -> Course:
         return Course(

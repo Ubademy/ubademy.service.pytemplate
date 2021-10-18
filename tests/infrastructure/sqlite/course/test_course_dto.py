@@ -1,5 +1,3 @@
-import pytest
-
 from app.domain.course import Course
 from app.infrastructure.sqlite.course import CourseDTO
 

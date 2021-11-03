@@ -2,16 +2,10 @@ name: Tests
 
 on:
   push:
+    branches: [None]
     paths-ignore:
       - 'docs/**'
-    branches:
-      - master
-      - develop
-  pull_request:
-    paths-ignore:
-      - 'docs/**'
-    branches:
-      - '**'
+
 
 jobs:
   test:

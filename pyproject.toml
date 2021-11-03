@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ubademy.service.courses"
+name = "ubademy.service.pytemplate"
 version = "0.1.0"
 description = ""
 authors = ["matias-gonz <maigonzalez@fi.uba.ar>"]
